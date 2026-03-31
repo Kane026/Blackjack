@@ -7,10 +7,11 @@ namespace Blackjack
     internal class BlackjackGame
     {
         Deck deck = new Deck();
+        Dealer dealer = new Dealer();
 
         public string Hit()
         {
-            return deck.DrawCard();
+            return dealer.DrawCard();
         }
     }
 }

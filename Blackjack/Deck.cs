@@ -73,13 +73,5 @@ namespace Blackjack
             "ace_of_clubs",
             "ace_of_diamonds"
         };
-
-        Random random = new Random();
-        public string DrawCard()
-        {
-            int index = random.Next(Cards.Count);
-            Cards.RemoveAt(index);
-            return Cards[index];
-        }
     }
 }
