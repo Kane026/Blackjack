@@ -7,14 +7,20 @@ namespace Blackjack
 {
     public class Dealer
     {
-        private Deck deck = new Deck();
         private Random random = new Random();
+        private Deck deck;
+
+        public Dealer(Deck deck)
+        {
+            this.deck = deck;
+        }
 
         public string DrawCard()
         {
             int index = random.Next(deck.Cards.Count);
+            string card = deck.Cards[index];
             deck.Cards.RemoveAt(index);
-            return deck.Cards[index];
+            return card;
         }
     }
 }

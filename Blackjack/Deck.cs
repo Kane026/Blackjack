@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Blackjack
 {
-    internal class Deck
+    public class Deck
     {
+        private Random random = new Random();
+
         public List<string> Cards = new List<string>()
         {
             "2_of_hearts",
@@ -73,5 +75,9 @@ namespace Blackjack
             "ace_of_clubs",
             "ace_of_diamonds"
         };
+        public void Shuffle()
+        {
+            Cards = Cards.OrderBy(_ => random.Next()).ToList();
+        }
     }
 }

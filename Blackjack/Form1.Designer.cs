@@ -33,6 +33,7 @@
             pictureBox1Player = new PictureBox();
             pictureBox2Player = new PictureBox();
             pictureBoxDealer2 = new PictureBox();
+            shuffleButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).BeginInit();
@@ -87,11 +88,22 @@
             pictureBoxDealer2.TabIndex = 4;
             pictureBoxDealer2.TabStop = false;
             // 
+            // shuffleButton
+            // 
+            shuffleButton.Location = new Point(98, 139);
+            shuffleButton.Name = "shuffleButton";
+            shuffleButton.Size = new Size(94, 29);
+            shuffleButton.TabIndex = 5;
+            shuffleButton.Text = "Shuffle";
+            shuffleButton.UseVisualStyleBackColor = true;
+            shuffleButton.Click += button1_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(shuffleButton);
             Controls.Add(pictureBoxDealer2);
             Controls.Add(pictureBox2Player);
             Controls.Add(pictureBox1Player);
@@ -113,5 +125,6 @@
         private PictureBox pictureBox1Player;
         private PictureBox pictureBox2Player;
         private PictureBox pictureBoxDealer2;
+        private Button shuffleButton;
     }
 }
