@@ -14,7 +14,7 @@ namespace Blackjack
             dealer = new Dealer(deck);
         }
 
-        public string Hit()
+        public Card Hit()
         {
             return dealer.DrawCard();
         }

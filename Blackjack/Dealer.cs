@@ -15,10 +15,10 @@ namespace Blackjack
             this.deck = deck;
         }
 
-        public string DrawCard()
+        public Card DrawCard()
         {
             int index = random.Next(deck.Cards.Count);
-            string card = deck.Cards[index];
+            Card card = deck.Cards[index];
             deck.Cards.RemoveAt(index);
             return card;
         }

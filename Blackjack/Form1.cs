@@ -20,14 +20,14 @@ namespace Blackjack
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string card1 = game.Hit();
-            string card2 = game.Hit();
-            string card3 = game.Hit();
+            Card card1 = game.Hit();
+            Card card2 = game.Hit();
+            Card card3 = game.Hit();
 
-            pictureBoxDealer1.Image = Image.FromFile("Images/" + card1 + ".png");
+            pictureBoxDealer1.Image = Image.FromFile("Images/" + card1.Name + ".png");
             pictureBoxDealer2.Image = Image.FromFile("Images/back_of_card.png");
-            pictureBox1Player.Image = Image.FromFile("Images/" + card2 + ".png");
-            pictureBox2Player.Image = Image.FromFile("Images/" + card3 + ".png");
+            pictureBox1Player.Image = Image.FromFile("Images/" + card2.Name + ".png");
+            pictureBox2Player.Image = Image.FromFile("Images/" + card3.Name + ".png");
 
         }
 
@@ -44,7 +44,7 @@ namespace Blackjack
         private void button1_Click_1(object sender, EventArgs e)
         {
             game.Shuffle();
-            MessageBox.Show("Deck is geshuffled!");
+            MessageBox.Show("Deck is geshuffled");
         }
     }
 }
