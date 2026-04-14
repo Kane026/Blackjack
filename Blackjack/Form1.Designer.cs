@@ -34,6 +34,8 @@
             pictureBox2Player = new PictureBox();
             pictureBoxDealer2 = new PictureBox();
             shuffleButton = new Button();
+            dealerScore = new TextBox();
+            playerScore = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).BeginInit();
@@ -98,11 +100,28 @@
             shuffleButton.UseVisualStyleBackColor = true;
             shuffleButton.Click += button1_Click_1;
             // 
+            // dealerScore
+            // 
+            dealerScore.Location = new Point(318, 12);
+            dealerScore.Name = "dealerScore";
+            dealerScore.Size = new Size(125, 27);
+            dealerScore.TabIndex = 6;
+            dealerScore.TextChanged += textBox1_TextChanged;
+            // 
+            // playerScore
+            // 
+            playerScore.Location = new Point(318, 226);
+            playerScore.Name = "playerScore";
+            playerScore.Size = new Size(125, 27);
+            playerScore.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(playerScore);
+            Controls.Add(dealerScore);
             Controls.Add(shuffleButton);
             Controls.Add(pictureBoxDealer2);
             Controls.Add(pictureBox2Player);
@@ -116,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -126,5 +146,7 @@
         private PictureBox pictureBox2Player;
         private PictureBox pictureBoxDealer2;
         private Button shuffleButton;
+        private TextBox dealerScore;
+        private TextBox playerScore;
     }
 }

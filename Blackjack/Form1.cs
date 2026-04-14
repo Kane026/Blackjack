@@ -29,6 +29,12 @@ namespace Blackjack
             pictureBox1Player.Image = Image.FromFile("Images/" + card2.Name + ".png");
             pictureBox2Player.Image = Image.FromFile("Images/" + card3.Name + ".png");
 
+            int playerTotal = card2.Value + card3.Value;
+            int dealerTotal = card1.Value;
+
+            playerScore.Text = playerTotal.ToString();
+            dealerScore.Text = dealerTotal.ToString();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -45,6 +51,11 @@ namespace Blackjack
         {
             game.Shuffle();
             MessageBox.Show("Deck is geshuffled");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
