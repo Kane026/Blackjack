@@ -40,6 +40,8 @@
             hitButton = new Button();
             pictureBox1 = new PictureBox();
             pictureBoxDealer3 = new PictureBox();
+            dealerPointsTextBox = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).BeginInit();
@@ -157,11 +159,30 @@
             pictureBoxDealer3.TabIndex = 11;
             pictureBoxDealer3.TabStop = false;
             // 
+            // dealerPointsTextBox
+            // 
+            dealerPointsTextBox.Location = new Point(48, 48);
+            dealerPointsTextBox.Name = "dealerPointsTextBox";
+            dealerPointsTextBox.Size = new Size(81, 27);
+            dealerPointsTextBox.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(33, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 20);
+            label1.TabIndex = 13;
+            label1.Text = "Dealer Points";
+            label1.Click += label1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(dealerPointsTextBox);
             Controls.Add(pictureBoxDealer3);
             Controls.Add(pictureBox1);
             Controls.Add(hitButton);
@@ -200,5 +221,7 @@
         private Button hitButton;
         private PictureBox pictureBox1;
         private PictureBox pictureBoxDealer3;
+        private TextBox dealerPointsTextBox;
+        private Label label1;
     }
 }

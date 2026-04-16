@@ -12,9 +12,9 @@ namespace Blackjack
     public partial class Form1 : Form
     {
         private BlackjackGame game = new BlackjackGame();
-        private Card dealerHiddenCard;
         private int dealerTotal;
         private int playerTotal;
+        private int dealerPoints;
 
         public Form1()
         {
@@ -23,6 +23,7 @@ namespace Blackjack
 
         private void dealButton_Click(object sender, EventArgs e)
         {
+            pictureBoxDealer3.Image = null;
 
             Card card1 = game.Hit();
             Card card2 = game.Hit();
@@ -68,15 +69,21 @@ namespace Blackjack
         {
             if (dealerTotal < 17)
             {
-                MessageBox.Show("Dealer must hit until they have at least 17 points");
+                MessageBox.Show("Dealer must hit until they have at least 17 points (-1 point)");
+                dealerPoints -= 1;
+                dealerPointsTextBox.Text = dealerPoints.ToString();
             }
             else if (dealerTotal > playerTotal)
             {
-                MessageBox.Show("Dealer wins you made the correct choice");
+                MessageBox.Show("Dealer wins you made the correct choice (+1 point)");
+                dealerPoints += 1;
+                dealerPointsTextBox.Text = dealerPoints.ToString();
             }
             else if (dealerTotal < playerTotal)
             {
-                MessageBox.Show("Player wins but you made the correct choice");
+                MessageBox.Show("Player wins but you made the correct choice (+1 point)");
+                dealerPoints += 1;
+                dealerPointsTextBox.Text = dealerPoints.ToString();
             }
             else
             {
@@ -106,10 +113,16 @@ namespace Blackjack
             }
             else
             {
-                MessageBox.Show("You can't hit anymore you're above 16 points");
+                MessageBox.Show("You can't hit anymore you're above 16 points (-1 point)");
+                dealerPoints -= 1;
+                dealerPointsTextBox.Text = dealerPoints.ToString();
             }
-            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
+}
 
