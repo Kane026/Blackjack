@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnHit = new Button();
+            dealButton = new Button();
             pictureBoxDealer1 = new PictureBox();
             pictureBox1Player = new PictureBox();
             pictureBox2Player = new PictureBox();
@@ -36,21 +36,27 @@
             shuffleButton = new Button();
             dealerScore = new TextBox();
             playerScore = new TextBox();
+            standButton = new Button();
+            hitButton = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBoxDealer3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDealer3).BeginInit();
             SuspendLayout();
             // 
-            // btnHit
+            // dealButton
             // 
-            btnHit.Location = new Point(98, 199);
-            btnHit.Name = "btnHit";
-            btnHit.Size = new Size(94, 29);
-            btnHit.TabIndex = 0;
-            btnHit.Text = "Deal";
-            btnHit.UseVisualStyleBackColor = true;
-            btnHit.Click += button1_Click;
+            dealButton.Location = new Point(98, 199);
+            dealButton.Name = "dealButton";
+            dealButton.Size = new Size(94, 29);
+            dealButton.TabIndex = 0;
+            dealButton.Text = "Deal";
+            dealButton.UseVisualStyleBackColor = true;
+            dealButton.Click += dealButton_Click;
             // 
             // pictureBoxDealer1
             // 
@@ -92,13 +98,13 @@
             // 
             // shuffleButton
             // 
-            shuffleButton.Location = new Point(98, 139);
+            shuffleButton.Location = new Point(98, 148);
             shuffleButton.Name = "shuffleButton";
             shuffleButton.Size = new Size(94, 29);
             shuffleButton.TabIndex = 5;
             shuffleButton.Text = "Shuffle";
             shuffleButton.UseVisualStyleBackColor = true;
-            shuffleButton.Click += button1_Click_1;
+            shuffleButton.Click += shuffleButton_Click;
             // 
             // dealerScore
             // 
@@ -115,11 +121,51 @@
             playerScore.Size = new Size(125, 27);
             playerScore.TabIndex = 7;
             // 
+            // standButton
+            // 
+            standButton.Location = new Point(98, 302);
+            standButton.Name = "standButton";
+            standButton.Size = new Size(94, 29);
+            standButton.TabIndex = 8;
+            standButton.Text = "Stand";
+            standButton.UseVisualStyleBackColor = true;
+            standButton.Click += standButton_Click;
+            // 
+            // hitButton
+            // 
+            hitButton.Location = new Point(98, 249);
+            hitButton.Name = "hitButton";
+            hitButton.Size = new Size(94, 29);
+            hitButton.TabIndex = 9;
+            hitButton.Text = "Hit";
+            hitButton.UseVisualStyleBackColor = true;
+            hitButton.Click += hitButton_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(555, 259);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(106, 147);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBoxDealer3
+            // 
+            pictureBoxDealer3.Location = new Point(555, 48);
+            pictureBoxDealer3.Name = "pictureBoxDealer3";
+            pictureBoxDealer3.Size = new Size(106, 139);
+            pictureBoxDealer3.TabIndex = 11;
+            pictureBoxDealer3.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBoxDealer3);
+            Controls.Add(pictureBox1);
+            Controls.Add(hitButton);
+            Controls.Add(standButton);
             Controls.Add(playerScore);
             Controls.Add(dealerScore);
             Controls.Add(shuffleButton);
@@ -127,20 +173,22 @@
             Controls.Add(pictureBox2Player);
             Controls.Add(pictureBox1Player);
             Controls.Add(pictureBoxDealer1);
-            Controls.Add(btnHit);
+            Controls.Add(dealButton);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1Player).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2Player).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDealer2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDealer3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnHit;
+        private Button dealButton;
         private PictureBox pictureBoxDealer1;
         private PictureBox pictureBox1Player;
         private PictureBox pictureBox2Player;
@@ -148,5 +196,9 @@
         private Button shuffleButton;
         private TextBox dealerScore;
         private TextBox playerScore;
+        private Button standButton;
+        private Button hitButton;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBoxDealer3;
     }
 }

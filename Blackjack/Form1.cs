@@ -5,35 +5,41 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Blackjack
 {
     public partial class Form1 : Form
     {
         private BlackjackGame game = new BlackjackGame();
+        private Card dealerHiddenCard;
+        private int dealerTotal;
+        private int playerTotal;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dealButton_Click(object sender, EventArgs e)
         {
 
             Card card1 = game.Hit();
             Card card2 = game.Hit();
             Card card3 = game.Hit();
+            Card card4 = game.Hit();
 
             pictureBoxDealer1.Image = Image.FromFile("Images/" + card1.Name + ".png");
-            pictureBoxDealer2.Image = Image.FromFile("Images/back_of_card.png");
-            pictureBox1Player.Image = Image.FromFile("Images/" + card2.Name + ".png");
-            pictureBox2Player.Image = Image.FromFile("Images/" + card3.Name + ".png");
+            pictureBoxDealer2.Image = Image.FromFile("Images/" + card2.Name + ".png");
+            pictureBox1Player.Image = Image.FromFile("Images/" + card3.Name + ".png");
+            pictureBox2Player.Image = Image.FromFile("Images/" + card4.Name + ".png");
 
-            int playerTotal = card2.Value + card3.Value;
-            int dealerTotal = card1.Value;
+            playerTotal = card3.Value + card4.Value;
+            dealerTotal = card1.Value + card2.Value;
 
             playerScore.Text = playerTotal.ToString();
             dealerScore.Text = dealerTotal.ToString();
+
 
         }
 
@@ -47,15 +53,63 @@ namespace Blackjack
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void shuffleButton_Click(object sender, EventArgs e)
         {
             game.Shuffle();
             MessageBox.Show("Deck is geshuffled");
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void standButton_Click(object sender, EventArgs e)
+        {
+            if (dealerTotal < 17)
+            {
+                MessageBox.Show("Dealer must hit until they have at least 17 points");
+            }
+            else if (dealerTotal > playerTotal)
+            {
+                MessageBox.Show("Dealer wins you made the correct choice");
+            }
+            else if (dealerTotal < playerTotal)
+            {
+                MessageBox.Show("Player wins but you made the correct choice");
+            }
+            else
+            {
+                MessageBox.Show("It's a tie!");
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void hitButton_Click(object sender, EventArgs e)
+        {
+            if (dealerTotal < 17)
+            {
+                Card cardDealer3 = game.Hit();
+                pictureBoxDealer3.Image = Image.FromFile("Images/" + cardDealer3.Name + ".png");
+                dealerTotal = dealerTotal + cardDealer3.Value;
+                dealerScore.Text = dealerTotal.ToString();
+
+                if (dealerTotal > 21)
+                {
+                    MessageBox.Show("Dealer busts player wins");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can't hit anymore you're above 16 points");
+            }
+            }
+
+        }
     }
-}
+
