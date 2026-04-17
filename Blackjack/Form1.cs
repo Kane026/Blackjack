@@ -106,9 +106,19 @@ namespace Blackjack
                 dealerTotal = dealerTotal + cardDealer3.Value;
                 dealerScore.Text = dealerTotal.ToString();
 
+
                 if (dealerTotal > 21)
                 {
-                    MessageBox.Show("Dealer busts player wins");
+                    MessageBox.Show("Dealer busts player wins but you made the correct choice (+1 point)");
+                    dealerPoints += 1;
+                    dealerPointsTextBox.Text = dealerPoints.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("Dealer hits you made the correct choice (+1 point)");
+                    dealerPoints += 1;
+                    dealerPointsTextBox.Text = dealerPoints.ToString();
                 }
             }
             else
